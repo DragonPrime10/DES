@@ -1,4 +1,4 @@
-## Welcome to my DES
+## 64-bit DES
 - By Reid Wilson and Matt Law
 
 Here we can show you how we went about designing and implementing a 64-bit DES within system verilog.
@@ -49,7 +49,7 @@ module feistel (inp_block, subkey, out_block);
 	EF expand(inp_block, expanded_block);
 	assign intermediate_block = expanded_block ^ subkey;
 
-	//S Box division and assignment
+	_S Box division and assignment_
 	logic [5:0] sb1in, sb2in, sb3in, sb4in, sb5in, sb6in, sb7in, sb8in;
 
 	assign sb1in = intermediate_block[47:42];
@@ -61,10 +61,10 @@ module feistel (inp_block, subkey, out_block);
 	assign sb7in = intermediate_block[11:6];
 	assign sb8in = intermediate_block[5:0];
 
-	//send divided bits to S boxes
+	_send divided bits to S boxes_
 	logic [3:0] sb1out, sb2out, sb3out, sb4out, sb5out, sb6out, sb7out, sb8out;
 
-	//combine sb1-8out
+	_combine sb1-8out_
 	logic [31:0] s_combined;
 
 	S1_Box s1 (sb1in, s_combined[31:28]);
@@ -76,7 +76,7 @@ module feistel (inp_block, subkey, out_block);
 	S7_Box s7 (sb7in, s_combined[7:4]);
 	S8_Box s8 (sb8in, s_combined[3:0]);
 
-	//straight diffusion
+	_straight diffusion_
 	SF straight(s_combined, out_block);
 
 endmodule // Feistel
@@ -98,10 +98,14 @@ ecb54739a1832ec5 433e4529462a4a62 0 || 2579db866c0f528c || 2579db866c0f528c 1
 ea37231a9ad2e5d9 3b3898371520f75e 0 || ed7bc587a26f8c67 || ed7bc587a26f8c67 1
 7f0ec241ebbdcf2b 0e329232ea6d0d73 0 || 318101b45f32078d || 318101b45f32078d 1
 
-## The ones on the right hand side indicated that our code works
+**The ones on the right hand side indicated that our code worked**
 ```
 
 #### Waveforms:
+![Image](Important.jpg)
+
+### Evaluation:
+In the end, after altering how the seven-segment displays work on our DSDB boards through Vivado, we were ready to proceed.  We implemented the files and got an output on the board.
 ![Image](Important.jpg)
 
 
