@@ -102,7 +102,7 @@ ea37231a9ad2e5d9 3b3898371520f75e 0 || ed7bc587a26f8c67 || ed7bc587a26f8c67 1
 ```
 
 #### Waveforms:
-
+![Image](Important.jpg)
 
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
